@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}View QR Code · AttendEase{% endblock %}
+{% block content %}
+<div class="page-heading"><div><span class="eyebrow">STUDENT QR CODE</span><h1>View QR code</h1></div><a class="btn btn-outline-secondary" href="{{ url_for('students') if not own_qr|default(false) else url_for('profile') }}">Back</a></div>
+<div class="content-card qr-view-card">
+  <h2 class="section-title">{{ student.full_name }}</h2>
+  <p class="text-secondary mb-3">Student ID: <strong>{{ student.student_id }}</strong></p>
+  <img class="qr-preview qr-view-image" src="{{ image_url }}" alt="QR code for {{ student.full_name }}">
+  
+</div>
+{% endblock %}
